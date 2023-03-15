@@ -11,13 +11,13 @@ import { useHistory } from "react-router-dom";
 // YOU CANNOT USE HOOKS IN CLASS COMPONENTS -- usually Higher Order Components are used instead
 // Class Components have different syntax, including `this`
 
-function WeddingPlanner() {
+function ColorThemes() {
   const user = useSelector((store) => store.user);
   const history = useHistory();
   const products = [
     {
       id: 1,
-      name: 'Color/Themes',
+      name: 'Earthen Bottle',
       href: '#',
       price: '$48',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
@@ -25,7 +25,7 @@ function WeddingPlanner() {
     },
     {
       id: 2,
-      name: 'Venues',
+      name: 'Nomad Tumbler',
       href: '#',
       price: '$35',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
@@ -33,7 +33,7 @@ function WeddingPlanner() {
     },
     {
       id: 3,
-      name: 'Flower Arrangements',
+      name: 'Focus Paper Refill',
       href: '#',
       price: '$89',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
@@ -41,7 +41,7 @@ function WeddingPlanner() {
     },
     {
       id: 4,
-      name: 'Hair Styles',
+      name: 'Machined Mechanical Pencil',
       href: '#',
       price: '$35',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
@@ -49,30 +49,30 @@ function WeddingPlanner() {
     },
     {
       id: 5,
-      name: 'Makeup Looks',
+      name: 'Focus Paper Refill',
       href: '#',
       price: '$89',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678488234/wedding-planner/wedding-dresses/bridal_n2djku.jpg',
+      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
       imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
     },
     {
       id: 6,
-      name: 'Wedding Dresses',
+      name: 'Machined Mechanical Pencil',
       href: '#',
       price: '$35',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678487606/wedding-planner/wedding-dresses/bridal-dress-long-train_nxzyzd.jpg',
+      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
       imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
     },
   ]
-  
+
 
   function handleClick() {
-    history.push("/color-themes");
+    history.push("/venue");
   }
 
   return (
     <div className="container">
-      <h2 className="text">Wedding Planner</h2>
+      <h2 className="text-center">Color/Themes</h2>
       <div className="bg-white">
         <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
           <h2 className="sr-only">Products</h2>
@@ -98,9 +98,10 @@ function WeddingPlanner() {
         className="btn"
         onClick={handleClick}
       >
-        Color/Themes
+        Venues
       </button>
     </div>
   );
 }
-export default WeddingPlanner;
+
+export default ColorThemes;

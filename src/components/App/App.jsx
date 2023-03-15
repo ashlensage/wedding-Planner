@@ -20,6 +20,13 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import WeddingPlanner from '../WeddingPlanner';
+import ColorThemes from '../ColorThemes';
+import Venue from '../Venue';
+import Flowers from '../Flowers';
+import Hair from '../Hair';
+import Makeup from '../Makeup';
+import WeddingDresses from '../WeddingDresses';
+import FinalPage from '../FinalPage';
 
 import './App.css';
 
@@ -65,6 +72,64 @@ function App() {
           <ProtectedRoute
             exact
             path="/wedding-planner"
+          >
+            <WeddingPlanner />
+          </ProtectedRoute>
+
+
+          <ProtectedRoute
+            exact
+            path="/color-themes"
+          >
+            <ColorThemes />
+          </ProtectedRoute>
+
+
+          <ProtectedRoute
+            exact
+            path="/venue"
+          >
+            <Venue />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/flowers"
+          >
+            <Flowers />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/hair"
+          >
+            <Hair />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/makeup"
+          >
+            <Makeup />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/wedding-dresses"
+          >
+            <WeddingDresses />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/final-page"
+          >
+            <FinalPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/main-page"
           >
             <WeddingPlanner />
           </ProtectedRoute>
