@@ -19,7 +19,6 @@ function WeddingPlanner() {
       id: 1,
       name: 'Color/Themes',
       href: '#',
-      price: '$48',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
       imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
     },
@@ -27,7 +26,6 @@ function WeddingPlanner() {
       id: 2,
       name: 'Venues',
       href: '#',
-      price: '$35',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
       imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
     },
@@ -35,7 +33,6 @@ function WeddingPlanner() {
       id: 3,
       name: 'Flower Arrangements',
       href: '#',
-      price: '$89',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
       imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
     },
@@ -43,7 +40,6 @@ function WeddingPlanner() {
       id: 4,
       name: 'Hair Styles',
       href: '#',
-      price: '$35',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
       imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
     },
@@ -51,7 +47,6 @@ function WeddingPlanner() {
       id: 5,
       name: 'Makeup Looks',
       href: '#',
-      price: '$89',
       imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678488234/wedding-planner/wedding-dresses/bridal_n2djku.jpg',
       imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
     },
@@ -59,7 +54,6 @@ function WeddingPlanner() {
       id: 6,
       name: 'Wedding Dresses',
       href: '#',
-      price: '$35',
       imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678487606/wedding-planner/wedding-dresses/bridal-dress-long-train_nxzyzd.jpg',
       imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
     },
@@ -70,6 +64,10 @@ function WeddingPlanner() {
     history.push("/color-themes");
   }
 
+const productsImageClick = (product) => {
+  console.log('productsImageClick, product', product);
+};
+
   return (
     <div className="container">
       <h2 className="text">Wedding Planner</h2>
@@ -79,7 +77,7 @@ function WeddingPlanner() {
 
           <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
             {products.map((product) => (
-              <a key={product.id} href={product.href} className="group">
+              <button onClick={() => productsImageClick(product)} key={product.id} className="group">
                 <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
                   <img
                     src={product.imageSrc}
@@ -89,7 +87,7 @@ function WeddingPlanner() {
                 </div>
                 <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
                 <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
-              </a>
+              </button>
             ))}
           </div>
         </div>

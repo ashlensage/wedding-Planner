@@ -11,6 +11,7 @@ body,
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0px;
+  background-color: #ead2ed;
 }
 
 img {
@@ -24,6 +25,8 @@ img {
   font-family: 'Poppins', sans-serif;
 }
 
+.font-link {
+  font-family: 'Courgette', cursive;}
 
 /* --------------------------------------------------------------------------------
 Container
@@ -105,3 +108,5 @@ input {
   margin: 5px;
   margin-bottom: 10px;
 }
+/*  */
+/* #ead2ed light lilac */

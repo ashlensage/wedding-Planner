@@ -36,7 +36,7 @@
 		{
 			"id": "d78bc69f-0d9e-4489-ec9d-ac502b78acf8",
 			"headers": "Content-Type: application/json\n",
-			"url": "http://localhost:5000/api/user/register",
+			"url": "http://localhost:5000/",
 			"preRequestScript": null,
 			"pathVariables": {},
 			"method": "POST",
@@ -47,7 +47,7 @@
 			"currentHelper": "normal",
 			"helperAttributes": {},
 			"time": 1556130772256,
-			"name": "http://localhost:5000/api/user/register",
+			"name": "http://localhost:5000/",
 			"description": "Registration",
 			"collectionId": "5e3e8d98-813d-5d2a-a79a-39cd12328d63",
 			"responses": [],

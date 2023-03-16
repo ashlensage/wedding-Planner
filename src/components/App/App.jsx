@@ -94,7 +94,7 @@ function App() {
 
           <ProtectedRoute
             exact
-            path="/flowers"
+            path="/flowers/:id"
           >
             <Flowers />
           </ProtectedRoute>

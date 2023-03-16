@@ -7,7 +7,7 @@
     },
     "item": [
         {
-            "name": "http://localhost:5000/api/user/register",
+            "name": "http://localhost:5000/",
             "request": {
                 "method": "POST",
                 "header": [

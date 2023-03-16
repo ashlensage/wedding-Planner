@@ -109,5 +109,6 @@ function FinalPage() {
     </div>
   );
 }
-
+// Delete button
+// => this.props.onDelete(this.props.id)
 export default FinalPage;

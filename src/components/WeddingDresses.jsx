@@ -38,14 +38,14 @@ function WeddingDresses() {
     },
     {
       id: 4,
-      name: 'Sparkling',
+      name: 'Sheer flowy lace',
       href: '#',
       imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678487585/wedding-planner/wedding-dresses/shimmer_enfbn3.jpg',
       imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
     },
     {
       id: 5,
-      name: 'Beading details bottom ruffle',
+      name: 'Ruffle V neckline ballgown',
       href: '#',
       imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678487580/wedding-planner/wedding-dresses/beading-details-bottom-ruffle_mirdkq.jpg',
       imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
@@ -111,6 +111,20 @@ function WeddingDresses() {
       name: 'Back cut out',
       href: '#',
       imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678487573/wedding-planner/wedding-dresses/open-back-lace-side-cut_mtn5bf.jpg',
+      imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
+    },
+    {
+      id: 15,
+      name: '',
+      href: '#',
+      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678487628/wedding-planner/wedding-dresses/drop-shoulder-gown_it5n4v.jpg',
+      imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
+    },
+    {
+      id: 16,
+      name: '',
+      href: '#',
+      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678487577/wedding-planner/wedding-dresses/rooftop-ruffles_gcci5y.jpg',
       imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
     },
   ]
