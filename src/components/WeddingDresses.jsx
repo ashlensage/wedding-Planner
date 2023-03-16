@@ -59,7 +59,7 @@ function WeddingDresses() {
     },
     {
       id: 7,
-      name: 'V neck',
+      name: 'V-neck',
       href: '#',
       imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678488233/wedding-planner/wedding-dresses/v-neck-gown_cpvlgg.jpg',
       imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
@@ -115,14 +115,14 @@ function WeddingDresses() {
     },
     {
       id: 15,
-      name: '',
+      name: 'Sheer princess dress',
       href: '#',
       imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678487628/wedding-planner/wedding-dresses/drop-shoulder-gown_it5n4v.jpg',
       imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
     },
     {
       id: 16,
-      name: '',
+      name: 'Ruffled V-neck ballgown',
       href: '#',
       imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678487577/wedding-planner/wedding-dresses/rooftop-ruffles_gcci5y.jpg',
       imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',

@@ -21,6 +21,7 @@ function WeddingPlanner() {
       href: '#',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
       imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
+      onClick: '/color-themes',
     },
     {
       id: 2,
@@ -28,6 +29,7 @@ function WeddingPlanner() {
       href: '#',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
       imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
+      onClick: '/venues',
     },
     {
       id: 3,
@@ -35,6 +37,7 @@ function WeddingPlanner() {
       href: '#',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
       imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
+      onClick: '/flowers',
     },
     {
       id: 4,
@@ -42,6 +45,7 @@ function WeddingPlanner() {
       href: '#',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
       imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
+      onClick: '/hair',
     },
     {
       id: 5,
@@ -49,6 +53,7 @@ function WeddingPlanner() {
       href: '#',
       imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678488234/wedding-planner/wedding-dresses/bridal_n2djku.jpg',
       imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
+      onClick: '/makeup',
     },
     {
       id: 6,
@@ -56,6 +61,7 @@ function WeddingPlanner() {
       href: '#',
       imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678487606/wedding-planner/wedding-dresses/bridal-dress-long-train_nxzyzd.jpg',
       imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
+      onClick: '/wedding-dresses',
     },
   ]
   
@@ -82,6 +88,7 @@ const productsImageClick = (product) => {
                   <img
                     src={product.imageSrc}
                     alt={product.imageAlt}
+                    onClick={() => history.push(product.onClick)}
                     className="h-full w-full object-cover object-center group-hover:opacity-75"
                   />
                 </div>

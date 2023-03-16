@@ -68,6 +68,7 @@ function App() {
             <UserPage />
           </ProtectedRoute>
 
+          {/* /:id */}
 
           <ProtectedRoute
             exact
@@ -87,14 +88,14 @@ function App() {
 
           <ProtectedRoute
             exact
-            path="/venue"
+            path="/venues"
           >
             <Venue />
           </ProtectedRoute>
 
           <ProtectedRoute
             exact
-            path="/flowers/:id"
+            path="/flowers"
           >
             <Flowers />
           </ProtectedRoute>

@@ -67,7 +67,7 @@ function ColorThemes() {
 
 
   function handleClick() {
-    history.push("/venue");
+    history.push("/venues");
   }
 
   return (
