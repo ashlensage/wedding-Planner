@@ -1,7 +1,6 @@
-import React from 'react';
-import {useSelector} from 'react-redux';
+import React from "react";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
@@ -13,67 +12,41 @@ import { useHistory } from "react-router-dom";
 
 function FinalPage() {
   const user = useSelector((store) => store.user);
-  const history = useHistory();
-  const products = [
-    {
-      id: 1,
-      name: 'Color/Themes',
-      href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
-      imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
-      onClick: '/color-themes',
-    },
-    {
-      id: 2,
-      name: 'Venues',
-      href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
-      imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
-      onClick: '/venues',
-    },
-    {
-      id: 3,
-      name: 'Flower Arrangements',
-      href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
-      imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
-      onClick: '/flowers',
-    },
-    {
-      id: 4,
-      name: 'Hair Styles',
-      href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
-      imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
-      onClick: '/hair',
-    },
-    {
-      id: 5,
-      name: 'Makeup Looks',
-      href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
-      imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
-      onClick: '/makeup',
-    },
-    {
-      id: 6,
-      name: 'Wedding Dresses',
-      href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
-      imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
-      onClick: '/wedding-dresses',
-    },
-  ]
+  const colorThemeReducer = useSelector(
+    (store) => store.getReducer.getColorThemesReducer
+  );
+  const flowersReducer = useSelector(
+    (store) => store.getReducer.getFlowersReducer
+  );
 
+  // Select remaining reducers here
+
+  const history = useHistory();
+  function getProducts() {
+    return [
+      { ...colorThemeReducer, onClick: "/color-themes" },
+      { ...flowersReducer, onClick: "/flowers" },
+      // { ...makeupReducer, onClick: "/color-themes" },
+      // Other reducers go here
+    ];
+  }
 
   function handleClick() {
+    // TODO: POST to the database
+    const dataForServer = {
+      color_theme_selection: colorThemeReducer.id,
+      flower_arrangement_selection: flowersReducer.id,
+      // etc.
+    };
+    // axios.post or saga
     history.push("/main-page");
   }
 
   const productsImageClick = (product) => {
-    console.log('productsImageClick, product', product);
+    console.log("productsImageClick, product", product);
   };
-  
+
+  console.log('getProducts', getProducts());
 
   return (
     <div className="container">
@@ -83,9 +56,13 @@ function FinalPage() {
           <h2 className="sr-only">Products</h2>
 
           <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-            {products.map((product) => (
-              <div key={product.id} >
-              <button onClick={() => productsImageClick(product)} key={product.id} className="group">
+            {getProducts().map((product) => (
+              <div key={product.id}>
+                <button
+                  onClick={() => productsImageClick(product)}
+                  key={product.id}
+                  className="group"
+                >
                   <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
                     <img
                       src={product.imageSrc}
@@ -94,32 +71,30 @@ function FinalPage() {
                       className="h-full w-full object-cover object-center group-hover:opacity-75"
                     />
                   </div>
-                    <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
-              </button>
-                    <div>
-                      <button 
-                        className="btn"
-                        onClick={() => {history.push(`${product.onClick}`)}}
-                      >
-                        Edit
-                      </button>
-                    </div>
-                    <button 
-                      className="btn"
-                      onClick={handleClick}
-                    >
-                      Delete
-                    </button>
-                    <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
-                    </div>
+                  <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
+                </button>
+                <div>
+                  <button
+                    className="btn"
+                    onClick={() => {
+                      history.push(`${product.onClick}`);
+                    }}
+                  >
+                    Edit
+                  </button>
+                </div>
+                <button className="btn" onClick={handleClick}>
+                  Delete
+                </button>
+                <p className="mt-1 text-lg font-medium text-gray-900">
+                  {product.price}
+                </p>
+              </div>
             ))}
           </div>
         </div>
       </div>
-      <button 
-        className="btn"
-        onClick={handleClick}
-      >
+      <button className="btn" onClick={handleClick}>
         Main Page
       </button>
     </div>

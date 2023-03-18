@@ -1,7 +1,6 @@
-import React from 'react';
-import {useSelector} from 'react-redux';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
@@ -13,49 +12,67 @@ import { useHistory } from "react-router-dom";
 
 function ColorThemes() {
   const user = useSelector((store) => store.user);
+  const colorThemeReducer = useSelector(
+    (store) => store.getReducer.getColorThemesReducer
+  );
+  
   const history = useHistory();
+  const dispatch = useDispatch();
+
   const products = [
     {
       id: 1,
-      name: 'Earthen Bottle',
-      href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
+      name: "Earthen Bottle",
+      href: "#",
+      imageSrc:
+        "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
     },
     {
       id: 2,
-      name: 'Nomad Tumbler',
-      href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
+      name: "Nomad Tumbler",
+      href: "#",
+      imageSrc:
+        "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg",
     },
     {
       id: 3,
-      name: 'Focus Paper Refill',
-      href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
+      name: "Focus Paper Refill",
+      href: "#",
+      imageSrc:
+        "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg",
     },
     {
       id: 4,
-      name: 'Machined Mechanical Pencil',
-      href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
+      name: "Machined Mechanical Pencil",
+      href: "#",
+      imageSrc:
+        "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg",
     },
     {
       id: 5,
-      name: 'Focus Paper Refill',
-      href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
+      name: "Focus Paper Refill",
+      href: "#",
+      imageSrc:
+        "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg",
     },
     {
       id: 6,
-      name: 'Machined Mechanical Pencil',
-      href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
+      name: "Machined Mechanical Pencil",
+      href: "#",
+      imageSrc:
+        "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg",
     },
-  ]
-
+  ];
 
   function handleClick() {
     history.push("/venues");
+  }
+
+  function makeSelection(product) {
+    dispatch({
+      type: "SET_COLOR_THEME",
+      payload: product,
+    });
   }
 
   return (
@@ -67,7 +84,11 @@ function ColorThemes() {
 
           <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
             {products.map((product) => (
-              <a key={product.id} href={product.href} className="group">
+              <div
+                key={product.id}
+                onClick={() => makeSelection(product)}
+                className="group"
+              >
                 <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
                   <img
                     src={product.imageSrc}
@@ -76,16 +97,17 @@ function ColorThemes() {
                   />
                 </div>
                 <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
-                <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
-              </a>
+                {/* Condtionally recnder selected item */}
+                {product.id === colorThemeReducer.id && <p>Selected!</p>}
+                <p className="mt-1 text-lg font-medium text-gray-900">
+                  {product.price}
+                </p>
+              </div>
             ))}
           </div>
         </div>
       </div>
-      <button 
-        className="btn"
-        onClick={handleClick}
-      >
+      <button className="btn" onClick={handleClick}>
         Venues
       </button>
     </div>

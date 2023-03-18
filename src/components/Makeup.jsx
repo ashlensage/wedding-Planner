@@ -16,42 +16,42 @@ function Makeup() {
   const history = useHistory();
   const products = [
     {
-      id: 1,
+      id: 301,
       name: 'Earthen Bottle',
       href: '#',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
       imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
     },
     {
-      id: 2,
+      id: 302,
       name: 'Nomad Tumbler',
       href: '#',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
       imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
     },
     {
-      id: 3,
+      id: 303,
       name: 'Focus Paper Refill',
       href: '#',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
       imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
     },
     {
-      id: 4,
+      id: 304,
       name: 'Machined Mechanical Pencil',
       href: '#',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
       imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
     },
     {
-      id: 5,
+      id: 305,
       name: 'Focus Paper Refill',
       href: '#',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
       imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
     },
     {
-      id: 6,
+      id: 306,
       name: 'Machined Mechanical Pencil',
       href: '#',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
