@@ -1,5 +1,5 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 
@@ -13,49 +13,50 @@ import { useHistory } from "react-router-dom";
 
 function Venue() {
   const user = useSelector((store) => store.user);
+  const venueReducer = useSelector(
+    (store) => store.getReducer.getVenuesReducer
+  );
+
+
   const history = useHistory();
+  const dispatch = useDispatch();
+
   const products = [
     {
       id: 401,
-      name: 'Earthen Bottle',
+      name: 'venue',
       href: '#',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
-      imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
     },
     {
       id: 402,
-      name: 'Nomad Tumbler',
+      name: 'venue',
       href: '#',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
-      imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
     },
     {
       id: 403,
-      name: 'Focus Paper Refill',
+      name: 'venue',
       href: '#',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
-      imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
     },
     {
       id: 404,
-      name: 'Machined Mechanical Pencil',
+      name: 'venue',
       href: '#',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
-      imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
     },
     {
       id: 405,
-      name: 'Focus Paper Refill',
+      name: 'venue',
       href: '#',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
-      imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
     },
     {
       id: 406,
-      name: 'Machined Mechanical Pencil',
+      name: 'venue',
       href: '#',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
-      imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
     },
   ]
 
@@ -63,6 +64,15 @@ function Venue() {
   function handleClick() {
     history.push("/flowers");
   }
+
+
+  function makeSelection(product) {
+    dispatch({
+      type: "SET_VENUES",
+      payload: product,
+    });
+  }
+
 
   return (
     <div className="container">
@@ -73,7 +83,11 @@ function Venue() {
 
           <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
             {products.map((product) => (
-              <a key={product.id} href={product.href} className="group">
+              <div 
+                key={product.id} 
+                onClick={() => makeSelection(product)}
+                className="group"
+              >
                 <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
                   <img
                     src={product.imageSrc}
@@ -82,8 +96,9 @@ function Venue() {
                   />
                 </div>
                 <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
+                {product.id === venueReducer.id && <p>Selected!</p>}
                 <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
-              </a>
+              </div>
             ))}
           </div>
         </div>

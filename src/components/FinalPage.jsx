@@ -12,11 +12,30 @@ import { useHistory } from "react-router-dom";
 
 function FinalPage() {
   const user = useSelector((store) => store.user);
+  
   const colorThemeReducer = useSelector(
     (store) => store.getReducer.getColorThemesReducer
   );
+
   const flowersReducer = useSelector(
     (store) => store.getReducer.getFlowersReducer
+  );
+
+  const hairReducer = useSelector(
+    (store) => store.getReducer.getHairReducer
+  );
+
+  const makeupReducer = useSelector(
+    (store) => store.getReducer.getMakeupReducer
+  );
+
+  const venueReducer = useSelector(
+    (store) => store.getReducer.getVenuesReducer
+  );
+
+
+  const weddingDressesReducer = useSelector(
+    (store) => store.getReducer.getWeddingDressesReducer
   );
 
   // Select remaining reducers here
@@ -26,6 +45,10 @@ function FinalPage() {
     return [
       { ...colorThemeReducer, onClick: "/color-themes" },
       { ...flowersReducer, onClick: "/flowers" },
+      { ...hairReducer, onClick: "/hair" },
+      { ...makeupReducer, onClick: "/makeup" },
+      { ...venueReducer, onClick: "/venues" },
+      { ...weddingDressesReducer, onClick: "/wedding-dresses" },
       // { ...makeupReducer, onClick: "/color-themes" },
       // Other reducers go here
     ];
@@ -36,6 +59,10 @@ function FinalPage() {
     const dataForServer = {
       color_theme_selection: colorThemeReducer.id,
       flower_arrangement_selection: flowersReducer.id,
+      hair_selection: hairReducer.id,
+      makeup_selection: makeupReducer.id,
+      venue_selection: venueReducer.id,
+      wedding_dress_selection: weddingDressesReducer.id,
       // etc.
     };
     // axios.post or saga
@@ -57,7 +84,7 @@ function FinalPage() {
 
           <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
             {getProducts().map((product) => (
-              <div key={product.id}>
+              <div key={product.id || product.onClick}>
                 <button
                   onClick={() => productsImageClick(product)}
                   key={product.id}

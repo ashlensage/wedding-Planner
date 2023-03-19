@@ -1,5 +1,5 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 
@@ -13,7 +13,14 @@ import { useHistory } from "react-router-dom";
 
 function WeddingDresses() {
   const user = useSelector((store) => store.user);
+  const weddingDressesReducer = useSelector(
+    (store) => store.getReducer.getWeddingDressesReducer
+  );
+
+
   const history = useHistory();
+  const dispatch = useDispatch();
+
   const products = [
     {
       id: 501,
@@ -118,6 +125,15 @@ function WeddingDresses() {
     history.push("/final-page");
   }
 
+
+  function makeSelection(product) {
+    dispatch({
+      type: "SET_WEDDING_DRESS",
+      payload: product,
+    });
+  }
+
+
   return (
     <div className="container">
       <h2 className="text-center">Wedding Dresses</h2>
@@ -127,7 +143,11 @@ function WeddingDresses() {
 
           <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
             {products.map((product) => (
-              <a key={product.id} href={product.href} className="group">
+              <div 
+                key={product.id} 
+                onClick={() => makeSelection(product)}
+                className="group"
+              >
                 <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
                   <img
                     src={product.imageSrc}
@@ -136,8 +156,9 @@ function WeddingDresses() {
                   />
                 </div>
                 <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
+                {product.id === weddingDressesReducer.id && <p>Selected!</p>}
                 <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
-              </a>
+              </div>
             ))}
           </div>
         </div>
