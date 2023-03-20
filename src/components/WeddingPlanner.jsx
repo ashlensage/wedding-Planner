@@ -17,9 +17,9 @@ function WeddingPlanner() {
   const products = [
     {
       id: 1,
-      name: 'Color/Themes',
+      name: 'Color/ Themes',
       href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114604/wedding-planner/color-themes/color-theme/blue-pink-colors-gigapixel-standard-scale-4_00x_qclrtx.jpg',
+      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679278932/wedding-planner/colors%20cropped/color-theme-cropped/blue-pink-colors-gigapixel-standard-scale-4_00x_w2aa7f.jpg',
       imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
       onClick: '/color-themes',
     },
@@ -27,7 +27,7 @@ function WeddingPlanner() {
       id: 2,
       name: 'Venues',
       href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679266144/wedding-planner/venues/venues/pink-rose-gold-gigapixel-standard-scale-6_00x_qp9vem.jpg',
+      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679266056/wedding-planner/venues/venues/spring-wedding-gigapixel-standard-scale-6_00x_bfgthl.jpg',
       imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
       onClick: '/venues',
     },
