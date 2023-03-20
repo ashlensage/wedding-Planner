@@ -11,37 +11,29 @@ import { useHistory } from "react-router-dom";
 // Class Components have different syntax, including `this`
 
 function FinalPage() {
+  const history = useHistory();
   const user = useSelector((store) => store.user);
   
   const colorThemeReducer = useSelector(
     (store) => store.getReducer.getColorThemesReducer
   );
-
   const flowersReducer = useSelector(
     (store) => store.getReducer.getFlowersReducer
   );
-
   const hairReducer = useSelector(
     (store) => store.getReducer.getHairReducer
   );
-
   const makeupReducer = useSelector(
     (store) => store.getReducer.getMakeupReducer
   );
-
   const venueReducer = useSelector(
     (store) => store.getReducer.getVenuesReducer
   );
-
-
   const weddingDressesReducer = useSelector(
     (store) => store.getReducer.getWeddingDressesReducer
   );
 
-  // Select remaining reducers here
-
-  const history = useHistory();
-  function getProducts() {
+  function selectedProducts() {
     return [
       { ...colorThemeReducer, onClick: "/color-themes" },
       { ...flowersReducer, onClick: "/flowers" },
@@ -49,8 +41,6 @@ function FinalPage() {
       { ...makeupReducer, onClick: "/makeup" },
       { ...venueReducer, onClick: "/venues" },
       { ...weddingDressesReducer, onClick: "/wedding-dresses" },
-      // { ...makeupReducer, onClick: "/color-themes" },
-      // Other reducers go here
     ];
   }
 
@@ -73,7 +63,7 @@ function FinalPage() {
     console.log("productsImageClick, product", product);
   };
 
-  console.log('getProducts', getProducts());
+  console.log('selectedProducts', selectedProducts());
 
   return (
     <div className="container">
@@ -83,7 +73,7 @@ function FinalPage() {
           <h2 className="sr-only">Products</h2>
 
           <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-            {getProducts().map((product) => (
+            {selectedProducts().map((product) => (
               <div key={product.id || product.onClick}>
                 <button
                   onClick={() => productsImageClick(product)}

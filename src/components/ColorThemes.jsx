@@ -12,12 +12,39 @@ import { useHistory } from "react-router-dom";
 
 function ColorThemes() {
   const user = useSelector((store) => store.user);
-  const colorThemeReducer = useSelector(
-    (store) => store.getReducer.getColorThemesReducer
-  );
-  
   const history = useHistory();
   const dispatch = useDispatch();
+
+    const colorThemeReducer = useSelector(
+      (store) => store.getReducer.getColorThemesReducer
+    );
+    const flowersReducer = useSelector(
+      (store) => store.getReducer.getFlowersReducer
+    );
+    const hairReducer = useSelector(
+      (store) => store.getReducer.getHairReducer
+    );
+    const makeupReducer = useSelector(
+      (store) => store.getReducer.getMakeupReducer
+    );
+    const venueReducer = useSelector(
+      (store) => store.getReducer.getVenuesReducer
+    );
+    const weddingDressesReducer = useSelector(
+      (store) => store.getReducer.getWeddingDressesReducer
+    );
+  
+    function selectedProducts() {
+      return [
+        { ...colorThemeReducer, onClick: "/color-themes" },
+        { ...flowersReducer, onClick: "/flowers" },
+        { ...hairReducer, onClick: "/hair" },
+        { ...makeupReducer, onClick: "/makeup" },
+        { ...venueReducer, onClick: "/venues" },
+        { ...weddingDressesReducer, onClick: "/wedding-dresses" },
+      ];
+    }
+
 
   const products = [
     {
@@ -25,119 +52,119 @@ function ColorThemes() {
       name: "color-themes",
       href: "#",
       imageSrc:
-        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114611/wedding-planner/color-themes/color-theme/blush-colors-gigapixel-standard-scale-4_00x_yufcsf.jpg",
+        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114593/wedding-planner/color-themes/color-theme/pink-grey-gigapixel-standard-scale-4_00x_do7ljw.jpg",
     },
     {
       id: 2,
       name: "color-themes",
       href: "#",
       imageSrc:
-        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114625/wedding-planner/color-themes/color-theme/paperflora-gigapixel-standard-scale-4_00x_fcwvgf.jpg",
+        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114638/wedding-planner/color-themes/color-theme/warmpalettes-gigapixel-standard-scale-6_00x_tv1fhz.jpg",
     },
     {
       id: 3,
       name: "color-themes",
       href: "#",
       imageSrc:
-        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114587/wedding-planner/color-themes/color-theme/freshflowersforweddings-gigapixel-low_res-scale-4_00x_dbhf41.jpg",
+        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114628/wedding-planner/color-themes/color-theme/sand-dusk-colour-palette-gigapixel-hq-scale-2_00x_ptxrrh.jpg",
     },
     {
       id: 4,
       name: "color-themes",
       href: "#",
       imageSrc:
-        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114585/wedding-planner/color-themes/color-theme/orange-blue-color-palette-gigapixel-standard-scale-6_00x_cunqxv.jpg",
+        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114635/wedding-planner/color-themes/color-theme/sunset-color-palette-gigapixel-low_res-scale-4_00x_tkronj.jpg",
     },
     {
       id: 5,
       name: "color-themes",
       href: "#",
       imageSrc:
-        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114638/wedding-planner/color-themes/color-theme/warmpalettes-gigapixel-standard-scale-6_00x_tv1fhz.jpg",
+        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114611/wedding-planner/color-themes/color-theme/blush-colors-gigapixel-standard-scale-4_00x_yufcsf.jpg",
     },
     {
       id: 6,
       name: "color-themes",
       href: "#",
       imageSrc:
-        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114628/wedding-planner/color-themes/color-theme/sand-dusk-colour-palette-gigapixel-hq-scale-2_00x_ptxrrh.jpg",
+        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114616/wedding-planner/color-themes/color-theme/floral-wedding-colors-gigapixel-standard-scale-4_00x_reo7r7.jpg",
     },
     {
       id: 7,
       name: "color-themes",
       href: "#",
       imageSrc:
-        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114616/wedding-planner/color-themes/color-theme/floral-wedding-colors-gigapixel-standard-scale-4_00x_reo7r7.jpg",
+        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114625/wedding-planner/color-themes/color-theme/paperflora-gigapixel-standard-scale-4_00x_fcwvgf.jpg",
     },
     {
       id: 8,
       name: "color-themes",
       href: "#",
       imageSrc:
-        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114611/wedding-planner/color-themes/color-theme/color_palette-gigapixel-standard-scale-4_00x_gkh2za.jpg",
+        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114634/wedding-planner/color-themes/color-theme/color-palette-pink-orange-gigapixel-standard-scale-4_00x_lg9zld.jpg",
     },
     {
       id: 9,
       name: "color-themes",
       href: "#",
       imageSrc:
-        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114604/wedding-planner/color-themes/color-theme/blue-pink-colors-gigapixel-standard-scale-4_00x_qclrtx.jpg",
+        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114585/wedding-planner/color-themes/color-theme/orange-blue-color-palette-gigapixel-standard-scale-6_00x_cunqxv.jpg",
     },
     {
       id: 10,
       name: "color-themes",
       href: "#",
       imageSrc:
-        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114604/wedding-planner/color-themes/color-theme/mineralglow-gigapixel-standard-scale-4_00x_gcfqtf.jpg",
+        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114604/wedding-planner/color-themes/color-theme/blue-pink-colors-gigapixel-standard-scale-4_00x_qclrtx.jpg",
     },
     {
       id: 11,
       name: "color-themes",
       href: "#",
       imageSrc:
-        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114604/wedding-planner/color-themes/color-theme/color-palette-gigapixel-standard-scale-4_00x_zqfa8n.jpg",
+        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114593/wedding-planner/color-themes/color-theme/wedding-colors-gigapixel-standard-scale-2_00x_d33ksh.jpg",
     },
     {
       id: 12,
       name: "color-themes",
       href: "#",
       imageSrc:
-        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114593/wedding-planner/color-themes/color-theme/wedding-colors-gigapixel-standard-scale-2_00x_d33ksh.jpg",
+        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114611/wedding-planner/color-themes/color-theme/color_palette-gigapixel-standard-scale-4_00x_gkh2za.jpg",
     },
     {
       id: 13,
       name: "color-themes",
       href: "#",
       imageSrc:
-        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114593/wedding-planner/color-themes/color-theme/pink-grey-gigapixel-standard-scale-4_00x_do7ljw.jpg",
+        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114587/wedding-planner/color-themes/color-theme/freshflowersforweddings-gigapixel-low_res-scale-4_00x_dbhf41.jpg",
     },
     {
       id: 14,
       name: "color-themes",
       href: "#",
       imageSrc:
-        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114591/wedding-planner/color-themes/color-theme/spring-color-palette-gigapixel-low_res-scale-4_00x_lpmcgf.jpg",
+        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114640/wedding-planner/color-themes/color-theme/blue-colors-gigapixel-standard-scale-4_00x_xj1cj3.jpg",
     },
     {
       id: 15,
       name: "color-themes",
       href: "#",
       imageSrc:
-        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114640/wedding-planner/color-themes/color-theme/blue-colors-gigapixel-standard-scale-4_00x_xj1cj3.jpg",
+        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114587/wedding-planner/color-themes/color-theme/wedding-color-gigapixel-standard-scale-4_00x_o69me2.jpg",
     },
     {
       id: 16,
       name: "color-themes",
       href: "#",
       imageSrc:
-        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114635/wedding-planner/color-themes/color-theme/sunset-color-palette-gigapixel-low_res-scale-4_00x_tkronj.jpg",
+        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114604/wedding-planner/color-themes/color-theme/mineralglow-gigapixel-standard-scale-4_00x_gcfqtf.jpg",
     },
     {
       id: 17,
       name: "color-themes",
       href: "#",
       imageSrc:
-        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114634/wedding-planner/color-themes/color-theme/color-palette-pink-orange-gigapixel-standard-scale-4_00x_lg9zld.jpg",
+        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114591/wedding-planner/color-themes/color-theme/spring-color-palette-gigapixel-low_res-scale-4_00x_lpmcgf.jpg",
     },
     {
       id: 18,
@@ -146,33 +173,28 @@ function ColorThemes() {
       imageSrc:
         "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114633/wedding-planner/color-themes/color-theme/green-blue-purple-gigapixel-low_res-scale-4_00x_ibvawz.jpg",
     },
-
     {
       id: 19,
-      name: "color-themes",
-      href: "#",
-      imageSrc:
-        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114641/wedding-planner/color-themes/color-theme/puple-green-blue-gigapixel-standard-scale-6_00x_lpwwer.jpg",
-    },
-    {
-      id: 20,
       name: "color-themes",
       href: "#",
       imageSrc:
         "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114632/wedding-planner/color-themes/color-theme/wedding-color-palette-gigapixel-standard-scale-2_00x_oemcbt.jpg",
     },
     {
-      id: 21,
+      id: 20,
       name: "color-themes",
       href: "#",
       imageSrc:
-        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114587/wedding-planner/color-themes/color-theme/wedding-color-gigapixel-standard-scale-4_00x_o69me2.jpg",
+        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679114641/wedding-planner/color-themes/color-theme/puple-green-blue-gigapixel-standard-scale-6_00x_lpwwer.jpg",
     },
-
   ];
 
   function handleClick() {
     history.push("/venues");
+  }
+
+  function handleClickFinal() {
+    history.push("/final-page");
   }
 
   function makeSelection(product) {
@@ -213,10 +235,18 @@ function ColorThemes() {
             ))}
           </div>
         </div>
+        </div>
+        <div className='flex justify-between'>
+        <button className="btn" onClick={handleClick}>
+          Venues
+        </button>
+        {selectedProducts().every(selectedProduct => selectedProduct.id) ? (
+            <button className="btn" onClick={handleClickFinal}>
+              Final Page
+            </button>
+          ) : null
+        }
       </div>
-      <button className="btn" onClick={handleClick}>
-        Venues
-      </button>
     </div>
   );
 }

@@ -27,7 +27,7 @@ function WeddingPlanner() {
       id: 2,
       name: 'Venues',
       href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
+      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679266144/wedding-planner/venues/venues/pink-rose-gold-gigapixel-standard-scale-6_00x_qp9vem.jpg',
       imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
       onClick: '/venues',
     },
