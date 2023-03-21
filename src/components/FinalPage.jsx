@@ -94,8 +94,27 @@ function FinalPage() {
                   <h3 className="h-auto aspect-[10/1] w-full p-2.5 flex justify-center items-center text-md font-bold text-gray-700 bg-white/50">
                     {product.label}
                   </h3>
+                  {product.availableColors?.length ? (
+                    <div className="flex flex-col">
+                      <h4 className="sr-only">Available colors</h4>
+                      <ul
+                        role="list"
+                        className="mt-auto flex items-center justify-center justify-items-center space-x-3 pb-3.5"
+                      >
+                        {product.availableColors.map((color) => (
+                          <li
+                            key={color.name}
+                            className="h-4 w-4 rounded-full border border-black border-opacity-30 drop-shadow"
+                            style={{ backgroundColor: color.colorBg }}
+                          >
+                            <span className="sr-only"> {color.name} </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : null}
                 </button>
-                <div className="flex place-content-center gap-4 mt-4 font-bold">
+                <div className="flex place-content-center gap-2.5 mt-4 font-bold">
                   <button
                     className="btn"
                     onClick={() => {
