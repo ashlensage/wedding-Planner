@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-
+import { LAZY_LOAD_IDX } from "./consts/consts";
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
@@ -12,213 +12,236 @@ import { useHistory } from "react-router-dom";
 // Class Components have different syntax, including `this`
 
 function Venue() {
-  const user = useSelector((store) => store.user);
   const history = useHistory();
   const dispatch = useDispatch();
 
-    const colorThemeReducer = useSelector(
-      (store) => store.getReducer.getColorThemesReducer
-    );
-    const flowersReducer = useSelector(
-      (store) => store.getReducer.getFlowersReducer
-    );
-    const hairReducer = useSelector(
-      (store) => store.getReducer.getHairReducer
-    );
-    const makeupReducer = useSelector(
-      (store) => store.getReducer.getMakeupReducer
-    );
-    const venueReducer = useSelector(
-      (store) => store.getReducer.getVenuesReducer
-    );
-    const weddingDressesReducer = useSelector(
-      (store) => store.getReducer.getWeddingDressesReducer
-    );
-  
-    function selectedProducts() {
-      return [
-        { ...colorThemeReducer, onClick: "/color-themes" },
-        { ...flowersReducer, onClick: "/flowers" },
-        { ...hairReducer, onClick: "/hair" },
-        { ...makeupReducer, onClick: "/makeup" },
-        { ...venueReducer, onClick: "/venues" },
-        { ...weddingDressesReducer, onClick: "/wedding-dresses" },
-      ];
-    }
+  const colorThemeReducer = useSelector(
+    (store) => store.getReducer.getColorThemesReducer
+  );
+  const flowersReducer = useSelector(
+    (store) => store.getReducer.getFlowersReducer
+  );
+  const hairReducer = useSelector((store) => store.getReducer.getHairReducer);
+  const makeupReducer = useSelector(
+    (store) => store.getReducer.getMakeupReducer
+  );
+  const venueReducer = useSelector(
+    (store) => store.getReducer.getVenuesReducer
+  );
+  const weddingDressesReducer = useSelector(
+    (store) => store.getReducer.getWeddingDressesReducer
+  );
 
+  function selectedProducts() {
+    return [
+      { ...colorThemeReducer, onClick: "/color-themes" },
+      { ...flowersReducer, onClick: "/flowers" },
+      { ...hairReducer, onClick: "/hair" },
+      { ...makeupReducer, onClick: "/makeup" },
+      { ...venueReducer, onClick: "/venues" },
+      { ...weddingDressesReducer, onClick: "/wedding-dresses" },
+    ];
+  }
 
   const products = [
     {
       id: 401,
-      name: 'Pink Flowers & Fairy Light Archway',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679266048/wedding-planner/venues/venues/flower-tunnel-gigapixel-standard-scale-6_00x_bbogvl.jpg',
+      name: "Pink Flowers & Fairy Light Archway",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_572,f_auto,q_auto/wedding-planner/venues/venues/flower-tunnel-gigapixel-standard-scale-6_00x_bbogvl",
     },
     {
       id: 402,
-      name: 'Fairy Light Pathway & Chandelier Dining',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679266087/wedding-planner/venues/venues/sparkly-wedding-gigapixel-standard-scale-6_00x_nljvji.jpg',
+      name: "Fairy Light Pathway & Chandelier Dining",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_572,f_auto,q_auto/wedding-planner/venues/venues/sparkly-wedding-gigapixel-standard-scale-6_00x_nljvji",
     },
     {
       id: 403,
-      name: '',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679266143/wedding-planner/venues/venues/wedding-in-brooklyn-gigapixel-standard-scale-6_00x_fh7mwq.jpg',
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_572,f_auto,q_auto/wedding-planner/venues/venues/wedding-in-brooklyn-gigapixel-standard-scale-6_00x_fh7mwq",
     },
     {
       id: 404,
-      name: 'Rooftop With City View',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679266075/wedding-planner/venues/venues/petals-rooftop-wedding-gigapixel-standard-scale-6_00x_z2dtft.jpg',
+      name: "Rooftop With City View",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_572,f_auto,q_auto/wedding-planner/venues/venues/petals-rooftop-wedding-gigapixel-standard-scale-6_00x_z2dtft",
     },
     {
       id: 405,
-      name: 'Rooftop With Lights Hanging Overhead',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679266081/wedding-planner/venues/venues/rooftop-lights-gigapixel-standard-scale-4_00x_nxmd1m.jpg',
+      name: "Rooftop With Lights Hanging Overhead",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_572,f_auto,q_auto/wedding-planner/venues/venues/rooftop-lights-gigapixel-standard-scale-4_00x_nxmd1m",
     },
     {
       id: 406,
-      name: 'Vinyard Views',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679266013/wedding-planner/venues/venues/vinyard-gigapixel-standard-scale-4_00x_bdhpza.jpg',
+      name: "Vinyard Views",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_572,f_auto,q_auto/wedding-planner/venues/venues/vinyard-gigapixel-standard-scale-4_00x_bdhpza",
     },
     {
       id: 407,
-      name: 'Mountain Views',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679266142/wedding-planner/venues/venues/caliornia-vineyard-wedding-gigapixel-standard-scale-4_00x_jhwgsf.jpg',
+      name: "Mountain Views",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_572,f_auto,q_auto/wedding-planner/venues/venues/caliornia-vineyard-wedding-gigapixel-standard-scale-4_00x_jhwgsf",
     },
     {
       id: 408,
-      name: 'Pathway With White Orchids',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679266124/wedding-planner/venues/venues/white-walkway-gigapixel-standard-scale-6_00x_cba4yo.jpg',
+      name: "Pathway With White Orchids",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_572,f_auto,q_auto/wedding-planner/venues/venues/white-walkway-gigapixel-standard-scale-6_00x_cba4yo",
     },
     {
       id: 409,
-      name: ' ',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679266119/wedding-planner/venues/venues/white-blue-outdoor-gigapixel-standard-scale-6_00x_prgldp.jpg',
+      name: " ",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_572,f_auto,q_auto/wedding-planner/venues/venues/white-blue-outdoor-gigapixel-standard-scale-6_00x_prgldp",
     },
     {
       id: 410,
-      name: 'Fairytale Forest',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679280162/wedding-planner/venues%202/venues-02/forest-lights-gigapixel-standard-scale-4_00x_ppvubn.jpg',
+      name: "Fairytale Forest",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_572,f_auto,q_auto/wedding-planner/venues%202/venues-02/forest-lights-gigapixel-standard-scale-4_00x_ppvubn",
     },
 
     {
       id: 411,
-      name: 'venue',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679266137/wedding-planner/venues/venues/forest-flower-arch-gigapixel-standard-scale-6_00x_i3arj4.jpg',
+      name: "venue",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_572,f_auto,q_auto/wedding-planner/venues/venues/forest-flower-arch-gigapixel-standard-scale-6_00x_i3arj4",
     },
     {
       id: 412,
-      name: 'Flower Arches & Aisle',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679266016/wedding-planner/venues/venues/flower-arches-gigapixel-standard-scale-6_00x_f6hyng.jpg',
+      name: "Flower Arches & Aisle",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_572,f_auto,q_auto/wedding-planner/venues/venues/flower-arches-gigapixel-standard-scale-6_00x_f6hyng",
     },
     {
       id: 413,
-      name: 'Elegant Ivory & Gold Ballroom',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679266118/wedding-planner/venues/venues/ivory-gold-ballroom-ceremony-gigapixel-standard-scale-2_00x_jqfijj.jpg',
+      name: "Elegant Ivory & Gold Ballroom",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_572,f_auto,q_auto/wedding-planner/venues/venues/ivory-gold-ballroom-ceremony-gigapixel-standard-scale-2_00x_jqfijj",
     },
     {
       id: 414,
-      name: '',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679266092/wedding-planner/venues/venues/wedding-venue-gigapixel-standard-scale-4_00x_khxysd.jpg',
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_572,f_auto,q_auto/wedding-planner/venues/venues/wedding-venue-gigapixel-standard-scale-4_00x_khxysd",
     },
     {
       id: 415,
-      name: '',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679266048/wedding-planner/venues/venues/white-roses-gigapixel-standard-scale-6_00x_u0ha6i.jpg',
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_572,f_auto,q_auto/wedding-planner/venues/venues/white-roses-gigapixel-standard-scale-6_00x_u0ha6i",
     },
     {
       id: 416,
-      name: 'Stunning Ruins',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679280150/wedding-planner/venues%202/venues-02/ruins-gigapixel-standard-scale-4_00x_qbaueh.jpg',
+      name: "Stunning Ruins",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_572,f_auto,q_auto/wedding-planner/venues%202/venues-02/ruins-gigapixel-standard-scale-4_00x_qbaueh",
     },
     {
       id: 417,
-      name: 'Castle Ruins',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679266105/wedding-planner/venues/venues/casel-monasero-gigapixel-standard-scale-6_00x_b3ve6j.jpg',
+      name: "Castle Ruins",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_572,f_auto,q_auto/wedding-planner/venues/venues/casel-monasero-gigapixel-standard-scale-6_00x_b3ve6j",
     },
     {
       id: 418,
-      name: 'Blue & Gold Museum With Arches',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679280145/wedding-planner/venues%202/venues-02/museum-blue-gold-gigapixel-standard-scale-4_00x_ahhwy5.jpg',
+      name: "Blue & Gold Museum With Arches",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_572,f_auto,q_auto/wedding-planner/venues%202/venues-02/museum-blue-gold-gigapixel-standard-scale-4_00x_ahhwy5",
     },
     {
       id: 419,
-      name: 'Pink Museum With Chandeliers',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679266119/wedding-planner/venues/venues/museum-pink-gigapixel-standard-scale-6_00x_cqpz8a.jpg',
+      name: "Pink Museum With Chandeliers",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_572,f_auto,q_auto/wedding-planner/venues/venues/museum-pink-gigapixel-standard-scale-6_00x_cqpz8a",
     },
     {
       id: 420,
-      name: 'Pink & White Rose Decor & Chandeliers',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679266057/wedding-planner/venues/venues/pink-venue-gigapixel-standard-scale-4_00x_pjo3vm.jpg',
+      name: "Pink & White Rose Decor & Chandeliers",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_572,f_auto,q_auto/wedding-planner/venues/venues/pink-venue-gigapixel-standard-scale-4_00x_pjo3vm",
     },
     {
       id: 421,
-      name: 'Pastel Flowers & Glass Decor',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679266054/wedding-planner/venues/venues/luxury-pink-and-purple-wedding-flowers-gigapixel-standard-scale-4_00x_sccvlz.jpg',
+      name: "Pastel Flowers & Glass Decor",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_572,f_auto,q_auto/wedding-planner/venues/venues/luxury-pink-and-purple-wedding-flowers-gigapixel-standard-scale-4_00x_sccvlz",
     },
     {
       id: 422,
-      name: 'Greenhouse',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679266052/wedding-planner/venues/venues/greenhouse-lights-gigapixel-standard-scale-4_00x_dq1gis.jpg',
+      name: "Greenhouse",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_572,f_auto,q_auto/wedding-planner/venues/venues/greenhouse-lights-gigapixel-standard-scale-4_00x_dq1gis",
     },
     {
       id: 423,
-      name: 'White Roses & Orchids On The Beach',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679266121/wedding-planner/venues/venues/ocean-view-gigapixel-standard-scale-6_00x_a5ikxq.jpg',
+      name: "White Roses & Orchids On The Beach",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_572,f_auto,q_auto/wedding-planner/venues/venues/ocean-view-gigapixel-standard-scale-6_00x_a5ikxq",
     },
     {
       id: 424,
-      name: 'Destination Wedding On The Ocean Shore',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679266056/wedding-planner/venues/venues/spring-wedding-gigapixel-standard-scale-6_00x_bfgthl.jpg',
+      name: "Destination Wedding On The Ocean Shore",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_572,f_auto,q_auto/wedding-planner/venues/venues/spring-wedding-gigapixel-standard-scale-6_00x_bfgthl",
     },
     {
       id: 425,
-      name: 'Reflective Aisle With White Decor',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679266145/wedding-planner/venues/venues/destination-wedding-gigapixel-standard-scale-4_00x_zjtc0t.jpg',
+      name: "Reflective Aisle With White Decor",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_572,f_auto,q_auto/wedding-planner/venues/venues/destination-wedding-gigapixel-standard-scale-4_00x_zjtc0t",
     },
     {
       id: 426,
-      name: 'Shimmering Tent With Pink Decor',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679266088/wedding-planner/venues/venues/tent-sparkles-pink-gigapixel-hq-scale-4_00x_oht7rp.jpg',
+      name: "Shimmering Tent With Pink Decor",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_572,f_auto,q_auto/wedding-planner/venues/venues/tent-sparkles-pink-gigapixel-hq-scale-4_00x_oht7rp",
     },
     {
       id: 427,
-      name: 'Lilac Flower Arches With Oceanview',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679280138/wedding-planner/venues%202/venues-02/venue-among-the-stars-gigapixel-standard-scale-4_00x_uix7nm.jpg',
+      name: "Lilac Flower Arches With Oceanview",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_572,f_auto,q_auto/wedding-planner/venues%202/venues-02/venue-among-the-stars-gigapixel-standard-scale-4_00x_uix7nm",
     },
     {
       id: 428,
-      name: 'Sunset View & Arches With Hanging Flowers',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679266017/wedding-planner/venues/venues/flower-wrapped-arches-gigapixel-standard-scale-6_00x_s637vi.jpg',
+      name: "Sunset View & Arches With Hanging Flowers",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_572,f_auto,q_auto/wedding-planner/venues/venues/flower-wrapped-arches-gigapixel-standard-scale-6_00x_s637vi",
     },
-  ]
-
+  ];
 
   function handleClick() {
     history.push("/flowers");
@@ -235,54 +258,51 @@ function Venue() {
     });
   }
 
-
   return (
-    <div className="container">
-      <h2 className="text-center">Venues</h2>
+    <div className="mx-auto max-w-2xl lg:max-w-7xl container">
+      <h1 className="font-display text-4xl">Venues</h1>
       <div className="bg-white">
-        <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+        <div className="py-16 sm:py-8">
           <h2 className="sr-only">Products</h2>
 
           <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-            {products.map((product) => (
-              <div 
-                key={product.id} 
+            {products.map((product, idx) => (
+              <div
+                key={product.id}
                 onClick={() => makeSelection(product)}
                 className="group"
               >
-                <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200">
                   <img
                     src={product.imageSrc}
                     alt={product.imageAlt}
                     className="h-full w-full object-cover object-center group-hover:opacity-75"
+                    loading={idx < LAZY_LOAD_IDX ? "eager" : "lazy"}
+                    fetchpriority={idx < LAZY_LOAD_IDX ? "high" : "auto"}
                   />
+                  {product.id === venueReducer.id ? (
+                    <h3 className="h-auto aspect-[10/1] w-full p-2.5 flex justify-center items-center text-md font-bold text-gray-700 bg-white/50">
+                      Selected
+                    </h3>
+                  ) : null}
                 </div>
-                <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
-                {product.id === venueReducer.id && <p>Selected!</p>}
-                <p className="mt-1 text-lg font-medium text-gray-900">
-                  {product.price}
-                </p>
               </div>
             ))}
           </div>
         </div>
-        </div>
-        <div className='flex justify-between'>
-        <button 
-        className="btn"
-        onClick={handleClick}
-        >
+      </div>
+      <div className="flex justify-between font-bold">
+        <button className="btn" onClick={handleClick}>
           Flower Arrangements
         </button>
-        {selectedProducts().every(selectedProduct => selectedProduct.id) ? (
-            <button className="btn" onClick={handleClickFinal}>
-              Final Page
-            </button>
-          ) : null
-        }
+        {selectedProducts().every((selectedProduct) => selectedProduct.id) ? (
+          <button className="btn" onClick={handleClickFinal}>
+            Final Page
+          </button>
+        ) : null}
       </div>
     </div>
-      );
-    }    
+  );
+}
 
 export default Venue;

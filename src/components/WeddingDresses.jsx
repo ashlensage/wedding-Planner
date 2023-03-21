@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-
+import { LAZY_LOAD_IDX } from "./consts/consts";
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
@@ -17,111 +17,180 @@ function WeddingDresses() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-    const weddingDressesReducer = useSelector(
-      (store) => store.getReducer.getWeddingDressesReducer
-    );
-
+  const weddingDressesReducer = useSelector(
+    (store) => store.getReducer.getWeddingDressesReducer
+  );
 
   const products = [
     {
       id: 501,
-      name: 'V-neck',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678488233/wedding-planner/wedding-dresses/v-neck-gown_cpvlgg.jpg',
+      name: "V-neck",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20wedding%20dresses/wedding-dresses-2x3/v-neck-gown-gigapixel-low_res-scale-4_00x_pzgnqv",
     },
     {
       id: 502,
-      name: 'Sheer ballgown',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678487632/wedding-planner/wedding-dresses/ballgown-wedding-dress_dhjdjo.jpg',
+      name: "Sheer ballgown",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20wedding%20dresses/wedding-dresses-2x3/ballgown-wedding-dress-gigapixel-standard-scale-4_00x_ghc6i2",
     },
     {
       id: 503,
-      name: 'Sheer princess dress',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678487628/wedding-planner/wedding-dresses/drop-shoulder-gown_it5n4v.jpg',
+      name: "Sheer princess dress",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20wedding%20dresses/wedding-dresses-2x3/sheer-thin-straps-gigapixel-standard-scale-4_00x_yq8zdt",
     },
     {
       id: 504,
-      name: 'Lace drop shoulder',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678487636/wedding-planner/wedding-dresses/sheer-layered-lace-top_exp6i2.jpg',
+      name: "Lace drop shoulder",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20wedding%20dresses/wedding-dresses-2x3/sheer-layered-lace-top-gigapixel-standard-scale-4_00x_nr2b4p",
     },
     {
       id: 505,
-      name: 'Shimmering pearls',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678488232/wedding-planner/wedding-dresses/wedding-dress-shimmering-pearls_ek7sct.jpg',
+      name: "Shimmering pearls",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20wedding%20dresses/wedding-dresses-2x3/lace-bridal-gigapixel-standard-scale-4_00x_xafc5c",
     },
     {
       id: 506,
-      name: 'Ruffle V neckline ballgown',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678487580/wedding-planner/wedding-dresses/beading-details-bottom-ruffle_mirdkq.jpg',
+      name: "Ruffle V neckline ballgown",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20wedding%20dresses/wedding-dresses-2x3/drop-shoulder-gown-gigapixel-standard-scale-4_00x_ohjqb3",
     },
     {
       id: 507,
-      name: 'Bow shoulders',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678487591/wedding-planner/wedding-dresses/white-bow-shoulders_skt24d.jpg',
+      name: "Bow shoulders",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20wedding%20dresses/wedding-dresses-2x3/pearl-detail-gigapixel-standard-scale-4_00x_l9wkf2",
     },
     {
       id: 508,
-      name: 'Sheer flowy lace',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678487585/wedding-planner/wedding-dresses/shimmer_enfbn3.jpg',
+      name: "Sheer flowy lace",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20wedding%20dresses/wedding-dresses-2x3/beading-details-bottom-ruffle-gigapixel-standard-scale-4_00x_ukqfn7",
     },
     {
       id: 509,
-      name: 'Mermaid lace flowers',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678487611/wedding-planner/wedding-dresses/mermaid-lace-flowers_q9lmht.jpg',
+      name: "Mermaid lace flowers",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20wedding%20dresses/wedding-dresses-2x3/sheer-lace-bow-gigapixel-standard-scale-4_00x_pld0bq",
     },
     {
       id: 510,
-      name: 'Mermaid lacey',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678487617/wedding-planner/wedding-dresses/mermaid-lace-detail_dxhcsj.jpg',
+      name: "Mermaid lacey",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20wedding%20dresses/wedding-dresses-2x3/white-bow-shoulders-gigapixel-standard-scale-4_00x_z57is5",
     },
     {
       id: 511,
-      name: 'Silk bow back',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678487596/wedding-planner/wedding-dresses/silk-ivory-bow-back_uhcvws.jpg',
+      name: "Silk bow back",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20wedding%20dresses/wedding-dresses-2x3/shimmer-gigapixel-standard-scale-4_00x_tzthx9",
     },
     {
       id: 512,
-      name: 'Ruffled V-neck ballgown',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678487577/wedding-planner/wedding-dresses/rooftop-ruffles_gcci5y.jpg',
+      name: "Ruffled V-neck ballgown",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20wedding%20dresses/wedding-dresses-2x3/off-shoulder-shimmer-gigapixel-standard-scale-4_00x_wcqgrj",
     },
     {
       id: 513,
-      name: 'Flower corset',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678487577/wedding-planner/wedding-dresses/off-shoulder-tool_ykwfs0.jpg',
+      name: "Flower corset",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20wedding%20dresses/wedding-dresses-2x3/mermaid-lace-flowers-gigapixel-low_res-scale-4_00x_tsyqew",
     },
     {
       id: 514,
-      name: 'Removable train',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678487620/wedding-planner/wedding-dresses/removable-train_qr236e.jpg',
+      name: "Removable train",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20wedding%20dresses/wedding-dresses-2x3/mermaid-lace-detail-gigapixel-standard-scale-4_00x_jva0id",
     },
     {
       id: 515,
-      name: 'Back cut out',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678487573/wedding-planner/wedding-dresses/open-back-lace-side-cut_mtn5bf.jpg',
+      name: "Back cut out",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20wedding%20dresses/wedding-dresses-2x3/silk-ivory-bow-back-gigapixel-standard-scale-4_00x_j4e2sk",
     },
     {
       id: 516,
-      name: 'Long sleeve',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1678487621/wedding-planner/wedding-dresses/lace-long-sleeve_iragoc.jpg',
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/image/upload/v1679347237/wedding-planner/updated%20wedding%20dresses/wedding-dresses-2x3/bridal-dress-long-train-gigapixel-standard-scale-4_00x_q0ksyl",
     },
-
-  ]
-
+    {
+      id: 517,
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20wedding%20dresses/wedding-dresses-2x3/bridal-dress-from-back-gigapixel-low_res-scale-4_00x_ewtnmm",
+    },
+    {
+      id: 518,
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20wedding%20dresses/wedding-dresses-2x3/rooftop-ruffles-gigapixel-standard-scale-4_00x_qnyshy",
+    },
+    {
+      id: 519,
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20wedding%20dresses/wedding-dresses-2x3/off-shoulder-tool-gigapixel-standard-scale-4_00x_lzo8p5",
+    },
+    {
+      id: 520,
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20wedding%20dresses/wedding-dresses-2x3/floral-lace-wedding-dress-blum-gigapixel-standard-scale-4_00x_q47e5m",
+    },
+    {
+      id: 521,
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20wedding%20dresses/wedding-dresses-2x3/removable-train-gigapixel-standard-scale-4_00x_hpvtyi",
+    },
+    {
+      id: 522,
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20wedding%20dresses/wedding-dresses-2x3/open-back-lace-side-cut-gigapixel-standard-scale-4_00x_grqron",
+    },
+    {
+      id: 523,
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20wedding%20dresses/wedding-dresses-2x3/long-sleeve-classic-gigapixel-standard-scale-4_00x_slcjgh",
+    },
+    {
+      id: 524,
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20wedding%20dresses/wedding-dresses-2x3/lace-long-sleeve-gigapixel-standard-scale-4_00x_vfqnbn",
+    },
+  ];
 
   function handleClick() {
     history.push("/final-page");
@@ -134,43 +203,43 @@ function WeddingDresses() {
     });
   }
 
-
   return (
-    <div className="container">
-      <h2 className="text-center">Wedding Dresses</h2>
+    <div className="mx-auto max-w-2xl lg:max-w-7xl container">
+      <h1 className="font-display text-4xl">Wedding Dresses</h1>
       <div className="bg-white">
-        <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+        <div className="py-16 sm:py-8">
           <h2 className="sr-only">Products</h2>
 
           <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-            {products.map((product) => (
-              <div 
-                key={product.id} 
+            {products.map((product, idx) => (
+              <div
+                key={product.id}
                 onClick={() => makeSelection(product)}
                 className="group"
               >
-                <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                <div className="aspect-w-2 aspect-h-3 w-full overflow-hidden rounded-lg bg-gray-200">
                   <img
                     src={product.imageSrc}
                     alt={product.imageAlt}
                     className="h-full w-full object-cover object-center group-hover:opacity-75"
+                    loading={idx < LAZY_LOAD_IDX ? "eager" : "lazy"}
+                    fetchpriority={idx < LAZY_LOAD_IDX ? "high" : "auto"}
                   />
+                  {product.id === weddingDressesReducer.id ? (
+                    <h3 className="h-auto aspect-[10/1] w-full p-2.5 flex justify-center items-center text-md font-bold text-gray-700 bg-white/50">
+                      Selected
+                    </h3>
+                  ) : null}
                 </div>
-                <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
-                {product.id === weddingDressesReducer.id && <p>Selected!</p>}
-                <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
               </div>
             ))}
           </div>
         </div>
-        </div>
-        <div className='flex justify-between'>
-        <button 
-        className="btn"
-        onClick={handleClick}
-      >
-        Final Page
-      </button>
+      </div>
+      <div className="flex justify-between font-bold">
+        <button className="btn" onClick={handleClick}>
+          Final Page
+        </button>
       </div>
     </div>
   );

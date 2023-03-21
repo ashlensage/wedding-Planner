@@ -13,16 +13,14 @@ import { useHistory } from "react-router-dom";
 function FinalPage() {
   const history = useHistory();
   const user = useSelector((store) => store.user);
-  
+
   const colorThemeReducer = useSelector(
     (store) => store.getReducer.getColorThemesReducer
   );
   const flowersReducer = useSelector(
     (store) => store.getReducer.getFlowersReducer
   );
-  const hairReducer = useSelector(
-    (store) => store.getReducer.getHairReducer
-  );
+  const hairReducer = useSelector((store) => store.getReducer.getHairReducer);
   const makeupReducer = useSelector(
     (store) => store.getReducer.getMakeupReducer
   );
@@ -35,12 +33,20 @@ function FinalPage() {
 
   function selectedProducts() {
     return [
-      { ...colorThemeReducer, onClick: "/color-themes" },
-      { ...flowersReducer, onClick: "/flowers" },
-      { ...hairReducer, onClick: "/hair" },
-      { ...makeupReducer, onClick: "/makeup" },
-      { ...venueReducer, onClick: "/venues" },
-      { ...weddingDressesReducer, onClick: "/wedding-dresses" },
+      {
+        ...colorThemeReducer,
+        onClick: "/color-themes",
+        label: "Color Palette",
+      },
+      { ...flowersReducer, onClick: "/flowers", label: "Flower Arrangement" },
+      { ...hairReducer, onClick: "/hair", label: "Hair Style" },
+      { ...makeupReducer, onClick: "/makeup", label: "Makeup" },
+      { ...venueReducer, onClick: "/venues", label: "Venue" },
+      {
+        ...weddingDressesReducer,
+        onClick: "/wedding-dresses",
+        label: "Wedding Dress",
+      },
     ];
   }
 
@@ -63,34 +69,33 @@ function FinalPage() {
     console.log("productsImageClick, product", product);
   };
 
-  console.log('selectedProducts', selectedProducts());
+  console.log("selectedProducts", selectedProducts());
 
   return (
-    <div className="container">
-      <h2 className="text-center">Final Page</h2>
+    <div className="mx-auto max-w-2xl lg:max-w-7xl container">
+      <h1 className="font-display text-4xl">Final Page</h1>
       <div className="bg-white">
-        <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+        <div className="py-16 sm:py-8">
           <h2 className="sr-only">Products</h2>
 
           <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
             {selectedProducts().map((product) => (
-              <div key={product.id || product.onClick}>
+              <div key={product.id || product.onClick} className="group">
                 <button
+                  className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200"
                   onClick={() => productsImageClick(product)}
-                  key={product.id}
-                  className="group"
                 >
-                  <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                    <img
-                      src={product.imageSrc}
-                      alt={product.imageAlt}
-                      onClick={() => history.push(product.onClick)}
-                      className="h-full w-full object-cover object-center group-hover:opacity-75"
-                    />
-                  </div>
-                  <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
+                  <img
+                    src={product.imageSrc}
+                    alt={product.imageAlt}
+                    onClick={() => history.push(product.onClick)}
+                    className="h-full w-full object-cover object-center group-hover:opacity-75"
+                  />
+                  <h3 className="h-auto aspect-[10/1] w-full p-2.5 flex justify-center items-center text-md font-bold text-gray-700 bg-white/50">
+                    {product.label}
+                  </h3>
                 </button>
-                <div>
+                <div className="flex place-content-center gap-4 mt-4 font-bold">
                   <button
                     className="btn"
                     onClick={() => {
@@ -99,19 +104,16 @@ function FinalPage() {
                   >
                     Edit
                   </button>
+                  <button className="btn" onClick={handleClick}>
+                    Delete
+                  </button>
                 </div>
-                <button className="btn" onClick={handleClick}>
-                  Delete
-                </button>
-                <p className="mt-1 text-lg font-medium text-gray-900">
-                  {product.price}
-                </p>
               </div>
             ))}
           </div>
         </div>
       </div>
-      <button className="btn" onClick={handleClick}>
+      <button className="btn font-bold" onClick={handleClick}>
         Main Page
       </button>
     </div>

@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-
+import { LAZY_LOAD_IDX } from "./consts/consts";
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
@@ -22,9 +22,7 @@ function Hair() {
   const flowersReducer = useSelector(
     (store) => store.getReducer.getFlowersReducer
   );
-  const hairReducer = useSelector(
-    (store) => store.getReducer.getHairReducer
-  );
+  const hairReducer = useSelector((store) => store.getReducer.getHairReducer);
   const makeupReducer = useSelector(
     (store) => store.getReducer.getMakeupReducer
   );
@@ -46,154 +44,176 @@ function Hair() {
     ];
   }
 
-
   const products = [
     {
       id: 201,
-      name: 'hair styles',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679176068/wedding-planner/hair%20styles/hairstyles/straight-end-curls-gigapixel-hq-scale-6_00x_ra4r5g.jpg',
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20hair%20styles/hair-2x3/blowout-gigapixel-standard-scale-6_00x_ybskys",
     },
     {
       id: 202,
-      name: 'hair styles',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679176127/wedding-planner/hair%20styles/hairstyles/tighter-curls-gigapixel-hq-scale-6_00x_y9qras.jpg',
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20hair%20styles/hair-2x3/curls-half-up-gigapixel-standard-scale-6_00x_efsya0",
     },
     {
       id: 203,
-      name: 'hair styles',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679176132/wedding-planner/hair%20styles/hairstyles/curls-half-up-gigapixel-standard-scale-6_00x_f858va.jpg',
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20hair%20styles/hair-2x3/hella-curls-gigapixel-standard-scale-6_00x_dtjz3i",
     },
     {
       id: 204,
-      name: 'hair styles',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679176154/wedding-planner/hair%20styles/hairstyles/hella-curls-gigapixel-standard-scale-6_00x_yqly2x.jpg',
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20hair%20styles/hair-2x3/bridal-pearl-hair-pin-gigapixel-standard-scale-6_00x_qfl2c3",
     },
     {
       id: 205,
-      name: 'hair styles',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679176151/wedding-planner/hair%20styles/hairstyles/bridal-pearl-hair-pin-gigapixel-standard-scale-6_00x_gvkmmy.jpg',
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20hair%20styles/hair-2x3/hollywood-curls-gigapixel-standard-scale-6_00x_rr3ixy",
     },
     {
       id: 206,
-      name: 'hair styles',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679176082/wedding-planner/hair%20styles/hairstyles/hollywood-curls-gigapixel-standard-scale-6_00x_etbmea.jpg',
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20hair%20styles/hair-2x3/half-up-braid-gigapixel-standard-scale-6_00x_y7ncds",
     },
     {
       id: 207,
-      name: 'hair styles',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679176098/wedding-planner/hair%20styles/hairstyles/half-up-braid-gigapixel-standard-scale-6_00x_zp7xqe.jpg',
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20hair%20styles/hair-2x3/twists-gigapixel-very_compressed-scale-6_00x_p3scbg",
     },
     {
       id: 208,
-      name: 'hair styles',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679176117/wedding-planner/hair%20styles/hairstyles/twists-gigapixel-very_compressed-scale-6_00x_gu75k5.jpg',
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/hair%20styles/hairstyles/classic-half-up-down-gigapixel-standard-scale-6_00x_vkzcor",
     },
     {
       id: 209,
-      name: 'hair styles',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679176071/wedding-planner/hair%20styles/hairstyles/classic-half-up-down-gigapixel-standard-scale-6_00x_vkzcor.jpg',
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20hair%20styles/hair-2x3/twist-over-flowers-gigapixel-hq-scale-6_00x_by3ti9",
     },
     {
       id: 210,
-      name: 'hair styles',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679176088/wedding-planner/hair%20styles/hairstyles/twist-over-flowers-gigapixel-hq-scale-6_00x_nqpbh1.jpg',
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20hair%20styles/hair-2x3/flowers-in-twist-gigapixel-standard-scale-6_00x_siu7lb",
     },
     {
       id: 211,
-      name: 'hair styles',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679176156/wedding-planner/hair%20styles/hairstyles/flowers-in-twist-gigapixel-standard-scale-6_00x_sbgzt3.jpg',
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20hair%20styles/hair-2x3/flower-braid-down-gigapixel-very_compressed-scale-6_00x_u19ulk",
     },
     {
       id: 212,
-      name: 'hair styles',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679176103/wedding-planner/hair%20styles/hairstyles/flower-braid-down-gigapixel-very_compressed-scale-6_00x_mnbwru.jpg',
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20hair%20styles/hair-2x3/flowers-gigapixel-standard-scale-6_00x_i2jwii",
     },
     {
       id: 213,
-      name: 'hair styles',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679176143/wedding-planner/hair%20styles/hairstyles/flowers-gigapixel-standard-scale-6_00x_chkasa.jpg',
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20hair%20styles/hair-2x3/twist-curls-gigapixel-hq-scale-6_00x_lxbtu1",
     },
     {
       id: 214,
-      name: 'hair styles',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679176078/wedding-planner/hair%20styles/hairstyles/twist-curls-gigapixel-hq-scale-6_00x_bbioua.jpg',
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20hair%20styles/hair-2x3/flowers-braided-in-gigapixel-standard-scale-6_00x_bmwpvm",
     },
     {
       id: 215,
-      name: 'hair styles',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679176157/wedding-planner/hair%20styles/hairstyles/flowers-braided-in-gigapixel-standard-scale-6_00x_lvzybw.jpg',
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20hair%20styles/hair-2x3/half-up-braids-gigapixel-standard-scale-6_00x-comp_ox30q6",
     },
     {
       id: 216,
-      name: 'hair styles',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679176137/wedding-planner/hair%20styles/hairstyles/half-up-braids-gigapixel-standard-scale-6_00x-comp_pmf1xj.jpg',
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20hair%20styles/hair-2x3/full-braid-gigapixel-standard-scale-6_00x_zxmvui",
     },
     {
       id: 217,
-      name: 'hair styles',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679176129/wedding-planner/hair%20styles/hairstyles/full-braid-gigapixel-standard-scale-6_00x_tpnpyz.jpg',
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20hair%20styles/hair-2x3/orange-flower-braid-gigapixel-low_res-scale-6_00x_mt9ydq",
     },
     {
       id: 218,
-      name: 'hair styles',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679176129/wedding-planner/hair%20styles/hairstyles/orange-flower-braid-gigapixel-low_res-scale-6_00x_ebyexr.jpg',
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20hair%20styles/hair-2x3/loose-braid-flowers-gigapixel-very_compressed-scale-6_00x_jwju9y",
     },
     {
       id: 219,
-      name: 'hair styles',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679176106/wedding-planner/hair%20styles/hairstyles/loose-braid-flowers-gigapixel-very_compressed-scale-6_00x_o1qpzq.jpg',
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20hair%20styles/hair-2x3/low-pony-gigapixel-low_res-scale-6_00x_o66ata",
     },
     {
       id: 220,
-      name: 'hair styles',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679176120/wedding-planner/hair%20styles/hairstyles/low-pony-gigapixel-low_res-scale-6_00x_ncmvh5.jpg',
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20hair%20styles/hair-2x3/loose-curl-bun-gigapixel-standard-scale-6_00x_fjilde",
     },
     {
       id: 221,
-      name: 'hair styles',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679176112/wedding-planner/hair%20styles/hairstyles/loose-curl-bun-gigapixel-standard-scale-6_00x_sghlsq.jpg',
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20hair%20styles/hair-2x3/purl-accents-gigapixel-standard-scale-6_00x_tkt1ew",
     },
     {
       id: 222,
-      name: 'hair styles',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679176123/wedding-planner/hair%20styles/hairstyles/purl-accents-gigapixel-standard-scale-6_00x_qk3jai.jpg',
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20hair%20styles/hair-2x3/low-bun-pearls-gigapixel-low_res-scale-6_00x_i4kjhd",
     },
     {
       id: 223,
-      name: 'hair styles',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679176103/wedding-planner/hair%20styles/hairstyles/low-bun-pearls-gigapixel-low_res-scale-6_00x_kxnkbq.jpg',
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20hair%20styles/hair-2x3/curl-bun-gigapixel-standard-scale-6_00x_rv0zfe",
     },
     {
       id: 224,
-      name: 'hair styles',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dk8n90n3m/image/upload/v1679176101/wedding-planner/hair%20styles/hairstyles/updo-high-bun-hr-ps-6x_r1swm5.jpg',
+      name: "",
+      href: "#",
+      imageSrc:
+        "https://res.cloudinary.com/dk8n90n3m/w_572,h_858,f_auto,q_auto/wedding-planner/updated%20hair%20styles/hair-2x3/updo-high-bun-hr-ps-6x_bf1ieo",
     },
-  ]
-
+  ];
 
   function handleClick() {
     history.push("/makeup");
@@ -210,51 +230,48 @@ function Hair() {
     });
   }
 
-
   return (
-    <div className="container">
-      <h2 className="text-center">Hair Styles</h2>
+    <div className="mx-auto max-w-2xl lg:max-w-7xl container">
+      <h1 className="font-display text-4xl">Hair Styles</h1>
       <div className="bg-white">
-        <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+        <div className="py-16 sm:py-8">
           <h2 className="sr-only">Products</h2>
 
           <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-            {products.map((product) => (
-              <div 
-                key={product.id} 
+            {products.map((product, idx) => (
+              <div
+                key={product.id}
                 onClick={() => makeSelection(product)}
                 className="group"
               >
-                <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                <div className="aspect-w-2 aspect-h-3 w-full overflow-hidden rounded-lg bg-gray-200">
                   <img
                     src={product.imageSrc}
                     alt={product.imageAlt}
                     className="h-full w-full object-cover object-center group-hover:opacity-75"
+                    loading={idx < LAZY_LOAD_IDX ? "eager" : "lazy"}
+                    fetchpriority={idx < LAZY_LOAD_IDX ? "high" : "auto"}
                   />
+                  {product.id === hairReducer.id ? (
+                    <h3 className="h-auto aspect-[10/1] w-full p-2.5 flex justify-center items-center text-md font-bold text-gray-700 bg-white/50">
+                      Selected
+                    </h3>
+                  ) : null}
                 </div>
-                <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
-                {product.id === hairReducer.id && <p>Selected!</p>}
-                <p className="mt-1 text-lg font-medium text-gray-900">
-                  {product.price}
-                </p>
               </div>
             ))}
           </div>
         </div>
       </div>
-      <div className='flex justify-between'>
-        <button 
-          className="btn"
-          onClick={handleClick}
-        >
+      <div className="flex justify-between font-bold">
+        <button className="btn" onClick={handleClick}>
           Makeup Looks
         </button>
-        {selectedProducts().every(selectedProduct => selectedProduct.id) ? (
-            <button className="btn" onClick={handleClickFinal}>
-              Final Page
-            </button>
-          ) : null
-        }
+        {selectedProducts().every((selectedProduct) => selectedProduct.id) ? (
+          <button className="btn" onClick={handleClickFinal}>
+            Final Page
+          </button>
+        ) : null}
       </div>
     </div>
   );
