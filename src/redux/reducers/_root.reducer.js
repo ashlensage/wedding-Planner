@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import errors from './errors.reducer';
 import user from './user.reducer';
-import deleteReducer from './delete.wedding';
+import deleteReducer from './delete.reducer';
 import getReducer from './get.wedding';
 import postReducer from './post.wedding';
 import putReducer from './put.wedding';
