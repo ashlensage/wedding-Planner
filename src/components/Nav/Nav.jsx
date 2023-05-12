@@ -11,7 +11,7 @@ function Nav() {
     <div className="nav text-gray-700">
       <div className="mx-auto max-w-2xl lg:max-w-7xl w-full container flex justify-content-center justify-between">
         <Link to="/home" className="self-center">
-          <h2 className="nav-title">Prime Solo Project</h2>
+          <h2 className="nav-title"></h2>
         </Link>
         <div className="flex">
           {/* If no user is logged in, show these links */}
