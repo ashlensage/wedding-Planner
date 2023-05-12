@@ -1,7 +1,6 @@
 Wedding Planner
 
-Wedding Planner is an app to help engaged couples simplify decisions related to wedding planning. It also shows choices they’ve made at the end & how they look together. Users have the option at the end to edit, make changes & delete previous choices.
-
+Wedding Planner is an all-in-one mobile application designed to assist engaged couples in streamlining their wedding planning process. The app helps users make informed decisions by presenting a variety of options for different aspects of their wedding. It also provides an overview of their selected choices and how they fit together. Users can easily make changes and delete previous choices if needed, ensuring that their wedding planning experience is stress-free and enjoyable.
 
 This version uses React, Redux, Express, Passport, and PostgreSQL, among other libraries common within the ecosystem.
 
