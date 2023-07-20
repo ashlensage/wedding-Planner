@@ -23,7 +23,7 @@ CREATE TABLE "user" (
   ```
   SERVER_SESSION_SECRET=superDuperSecret
   ```
-  While you're in your new `.env` file, take the time to replace `superDuperSecret` with a private key like `25POUbVtx6RKVNWsz$d9ERB9Bb!6hunDg!$&aPie` to keep your application secure. Here's a site that can help you: [https://passwordsgenerator.net/](https://passwordsgenerator.net/). If you don't do this step, create a secret with less than eight characters, or leave it as `superDuperSecret`, you will get a warning.
+  While you're in your new `.env` file, nake sure to replace `superDuperSecret` with a private key like `25POUbVtx6RKVNWsz$d9ERB9Bb!6hunDg!$&aPie` to keep your application secure. Here's a site that can help you: [https://passwordsgenerator.net/](https://passwordsgenerator.net/). If you don't do this step, create a secret with less than eight characters, or leave it as `superDuperSecret`, you will get a warning.
 - Start postgres
 - Run `npm run server`
 - Run `npm run client`
